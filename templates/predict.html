@@ -1,0 +1,27 @@
+{% extends "bootstrap.html" %}
+{% block content %}
+<h2>Prediction Engine</h2>
+
+<p class="lead">Predict Stack Overflow views using the engine below.</p>
+<form action="/predict" method="GET">
+  {% for f in form_features %}
+  <div class="form-group row">
+    <label for="strategy" class="col-sm-2 col-form-label"><b>{{ f[0] }}</b></label>
+    <div class="col-sm-10">
+      <input type="text" name="{{ f[1] }}">
+    </div>
+  </div>
+  {% endfor %}
+  <div class="form-group row">
+    <div class="col-sm-2"> </div>
+    <div class="col-sm-10">
+      <button type="submit" class="btn btn-primary">Predict</button>
+    </div>
+  </div>
+</form>
+
+{% if show_prediction %} 
+<h2>Prediction Result</h2>
+<p class="lead">The predicted number of views for your question is <b>{{ prediction }}</b>.</p>
+{% endif %}
+{% endblock %}
