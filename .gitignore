@@ -2,11 +2,8 @@
 .ipynb_checkpoints/
 .idea
 *.iml
-out
 gen
 
-/nb/afrbot.db
-settings/dev.py
 local_settings.py
 Makefile.settings
 
