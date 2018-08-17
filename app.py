@@ -1,6 +1,5 @@
 import flask, frolic, importlib
 importlib.reload(frolic)
-from io import StringIO
 
 app = flask.Flask(__name__)
 
@@ -8,7 +7,7 @@ app = flask.Flask(__name__)
 def main():
     return flask.render_template('main.html')
 
-@app.route('/predict', methods=['GET', 'POST'])
+@app.route('/predict')
 def predict():
     form_features = [['Title Length', 'title_len'], 
                      ['Body Length', 'body_len'],
@@ -29,4 +28,4 @@ def predict():
                                  prediction=prediction, dt_predict=dt_predict)
 
 if __name__ == '__main__':
-    app.run(port=5015, debug=True, host='0.0.0.0')
+    app.run(port=80, debug=True, host='0.0.0.0')
